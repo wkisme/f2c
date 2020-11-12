@@ -27,3 +27,6 @@ echo "==================SUMMARY=================="
 echo $0 " has built and installed:"
 find $INSTALL -name '*f2c*' -mmin -5
 find $INSTALL -name '*f77*' -mmin -5
+
+
+# I dont't know how this script replace the system gfortran compiler. Attention don't run this use the root priority. 
