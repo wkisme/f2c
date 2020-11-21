@@ -1,9 +1,8 @@
 #! /bin/csh
-setenv INSTALL /home/wk/f2c # don't use this dir "/usr/local", may be cover the origin gfortran
+setenv INSTALL /usr/local
 curl "http://netlib.sandia.gov/cgi-bin/netlib/netlibfiles.tar?filename=netlib/f2c" -o "f2c.tar"
 tar -xvf f2c.tar
 gunzip -rf f2c/*
-chmod 777 f2c/src/xsum # add to avoid authority problem
 cd f2c
 mkdir libf2c
 mv libf2c.zip libf2c
@@ -15,7 +14,7 @@ cp f2c.h $INSTALL/include
 cp libf2c.a $INSTALL/lib
 cd ../src
 cp makefile.u Makefile
-make     # ./xsum: Exec format error**** need to recompile xsum on your installing machine
+make
 cp f2c $INSTALL/bin
 cd ..
 mkdir -p $INSTALL/man/man1
@@ -30,3 +29,4 @@ find $INSTALL -name '*f2c*' -mmin -5
 find $INSTALL -name '*f77*' -mmin -5
 
 
+# I dont't know how this script replace the system gfortran compiler. Attention don't run this use the root priority. 
